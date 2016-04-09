@@ -232,6 +232,9 @@ function ENT:TryNextSong()
 
         print( "[TrixMusic] Playing next song! (" .. self.OnGoing .. "/" .. #self.Songs .. ")" )
 
+        self.Listeners = {}
+        self.ThinkEnd = {}
+
         net.Start( "fft_v2" )
             net.WriteEntity( self )
             net.WriteString( self.Songs[self.OnGoing] )
